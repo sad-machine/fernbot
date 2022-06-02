@@ -31,12 +31,12 @@ const wordToRepeat = '';
 client.on('message', (channel, user, message, self) => {
     if(self) return;
 
-    if(channel.game == "Words On Stream") {
+    // if(channel.game == "Words On Stream") {
         if (message.substring(1) == ";") {
             word(message);
             repeat(true);
         }
-    }
+    // }
 
     // respond to command
     //respond.to(user, message);
