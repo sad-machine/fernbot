@@ -11,8 +11,8 @@ const options = {
         reconnect: true,
         secure: TextTrackCue,
         identity: {
-            process.env.TWITCH_BOT_USERNAME,
-            process.env.TWITCH_OAUTH_TOKEN
+            username: process.env.TWITCH_BOT_USERNAME,
+            password: process.env.TWITCH_OAUTH_TOKEN
         },
         channels: [process.env.TWITCH_CHANNEL_NAME]
     }
