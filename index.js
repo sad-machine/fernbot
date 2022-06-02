@@ -24,6 +24,7 @@ client.connect().catch(console.error);
 // on connect
 client.on('connected', () => {
     // do nothing
+    client.say(process.env.TWITCH_CHANNEL_NAME, "Reporting for duty o7");
 });
 
 // chat commands
