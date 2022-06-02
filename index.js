@@ -1,10 +1,9 @@
 import { setTimeout } from "timers/promises";
-
+require('dotenv').config();
 const tmi = require('tmi.js'),
 shoutout = require('shoutout.js'),
 respond = require('shoutout.js'),
-wos = require('wos.js'),
-{ channel, username, password } = require('.settings.json');
+wos = require('wos.js')
 
 const options = {
     options: { debug: true },
@@ -12,10 +11,10 @@ const options = {
         reconnect: true,
         secure: TextTrackCue,
         identity: {
-            username,
-            password
+            process.env.TWITCH_BOT_USERNAME,
+            process.env.TWITCH_OAUTH_TOKEN
         },
-        channels: [channel]
+        channels: [process.env.TWITCH_CHANNEL_NAME]
     }
 };
 
