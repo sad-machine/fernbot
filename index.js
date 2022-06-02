@@ -32,10 +32,10 @@ client.on('message', (channel, user, message, self) => {
     if(self) return;
 
     // if(channel.game == "Words On Stream") {
-        if (message.substring(1) == ";") {
-            word(message);
-            repeat(true);
-        }
+        // if (message.substring(1) == ";") {
+        //     word(message);
+        //     repeat(true);
+        // }
     // }
 
     // respond to command
@@ -52,20 +52,20 @@ client.on("hosted", (channel, username, viewers, autohost) => {
     client.say(channel, `Thanks for the host, @${username}!`);
 });
 
-const repeat = async(go) => {
-    while (go) {
-        // wait 15 seconds
-        await setTimeout(15000);
-        client.say(channel, wordToRepeat);
-    }
-};
+// const repeat = async(go) => {
+//     while (go) {
+//         // wait 15 seconds
+//         await setTimeout(15000);
+//         client.say(channel, wordToRepeat);
+//     }
+// };
 
-function word(message) {
-    // updates Word To Repeat
-    wordToRepeat = message.trim().substring(2).toUpperCase().split(' ');
+// function word(message) {
+//     // updates Word To Repeat
+//     wordToRepeat = message.trim().substring(2).toUpperCase().split(' ');
 
-    if (wordToRepeat == "S T O P")
-        this.repeat(false);
-    else
-        client.say(channel, wordToRepeat);
-}
+//     if (wordToRepeat == "S T O P")
+//         this.repeat(false);
+//     else
+//         client.say(channel, wordToRepeat);
+// }
