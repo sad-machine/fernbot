@@ -31,6 +31,10 @@ const wordToRepeat = '';
 client.on('message', (channel, user, message, self) => {
     if(self) return;
 
+    if (message.substring(0,6) == "!define") {
+        define(channel, message);
+    }
+
     // if(channel.game == "Words On Stream") {
         // if (message.substring(1) == ";") {
         //     word(message);
@@ -51,6 +55,14 @@ client.on('message', (channel, user, message, self) => {
 client.on("hosted", (channel, username, viewers, autohost) => {
     client.say(channel, `Thanks for the host, @${username}!`);
 });
+
+async function define(channel, message) {
+    word = message.substring(7).trim();
+    definition = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+    .then(response => response.json())
+    .then(data => data[0].meanings[0].definitions[0].definition);
+    client.say(channel, definition);
+}
 
 // const repeat = async(go) => {
 //     while (go) {
